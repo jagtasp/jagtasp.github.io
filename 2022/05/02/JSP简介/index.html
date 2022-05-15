@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JSP简介 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、JSP简介
+Java动态网页技术标准（Java Servlet Pages）
+是基于Servlet技术以及整个Java体系的Web开发技术，是用于动态生成HTML文档的Web页面模板
+JSP是为,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="JSP简介 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、JSP简介
+Java动态网页技术标准（Java Servlet Pages）
+是基于Servlet技术以及整个Java体系的Web开发技术，是用于动态生成HTML文档的Web页面模板
+JSP是为,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="JSP简介 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、JSP简介
+Java动态网页技术标准（Java Servlet Pages）
+是基于Servlet技术以及整个Java体系的Web开发技术，是用于动态生成HTML文档的Web页面模板
+JSP是为,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">JSP简介</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JSP简介</h1>
+        <div class="stuff">
+            <span>五月 02, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、JSP简介</p>
+<p>Java动态网页技术标准（Java Servlet Pages）</p>
+<p>是基于Servlet技术以及整个Java体系的Web开发技术，是用于动态生成HTML文档的Web页面模板</p>
+<p>JSP是为了改进Servlet输出动态的HTML复杂、繁琐等缺点而提出的，JSP允许Java代码与HTML代码写在同一页面中，使开发人员能快速的开发包括大量HTML代码的动态网页。　</p>
+<p>二、动态网页技术</p>
+<p>ASP  ASP.net  PHP  JSP</p>
+<p>其中JSP在性能方面速度快，安全性高。</p>
+<p>三、JSP的组成</p>
+<p><img src="/2022/05/02/JSP%E7%AE%80%E4%BB%8B/1.png"></p>
+<p>四、JSP文件结构及主要标签</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ pages language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br><span class="line">jsp文件必须包括上面一行代码</span><br><span class="line">&lt;%@ <span class="type">page</span> <span class="variable">import</span> <span class="operator">=</span> <span class="string">&quot;java.util.*&quot;</span>%&gt;</span><br><span class="line">……</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;boby&gt;</span><br><span class="line">        其他HTML语言</span><br><span class="line">        &lt;%</span><br><span class="line">        符合Java语法的Java语句</span><br><span class="line">        %&gt;</span><br><span class="line">        其他HTML语言</span><br><span class="line">    &lt;/boby&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/05/02/JSP%E7%AE%80%E4%BB%8B/2.png"></p>
+<p>五、JSP项目结构</p>
+<p>JSP必须依附项目（站点）</p>
+<p>一个动态站点包括web-INF目录，WEB-INF目录中包括web.xml文件</p>
+<p>JSP文件与WEB-INF同级目录</p>
+<p>六、Tomcat中部署JSP站点</p>
+<p>1.站点直接放在Webapps目录下</p>
+<p>Tomcat的Webapps目录是Tomcat默认的应用目录，当服务器启动时，会加载所有这个目录下的应用</p>
+<p>2.在servlet.xml中：</p>
+<p>Host标签内创建Context</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span> =<span class="string">&quot;/myapp&quot;</span> <span class="attr">reloadable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">docBase</span> = <span class="string">&quot;D:\myapp&quot;</span> <span class="attr">workDir</span>=<span class="string">&quot;D:\myapp\work&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中path是JSP应用虚拟路径</p>
+<p>docBase是JSP应用的物理路径</p>
+<p>workDir是JSP应用的工作目录（存放运行时生成的关于应用相关的文件）</p>
+<p>注意：删除一个Web应用的工作目录同时删除servlet.xml中相应的Context节点。</p>
+<p>3.创建一个Context文件</p>
+<p>直接在Tomcat的conf\Catalina\localhost目录下新建xml文件</p>
+<p>文件内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span> =<span class="string">&quot;/myapp&quot;</span> <span class="attr">reloadable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">docBase</span> =<span class="string">&quot;D:\myapp&quot;</span> <span class="attr">workDir</span>=<span class="string">&quot;D:\myapp\work&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：删除一个Web应用的同时删除conf\catalina\localhost目录下相应的xml文件。</p>
+<p>七、Eclipse中编写、运行JSP项目</p>
+<p>1.打开，新建工程</p>
+<p>2.在WebContent目录下新建index.jsp文件</p>
+<p>3.编写index.jsp文件</p>
+<p>4.运行项目</p>
+<p>八、JSP页面元素</p>
+<p>HTML标签     Java代码     JSP标签</p>
+<p><img src="/2022/05/02/JSP%E7%AE%80%E4%BB%8B/3.png"></p>
+<p>1.JSP伪指令</p>
+<p>伪指令用来设置全局变量、声明类、要实现的方法以及输出内容的类型等</p>
+<p><img src="/2022/05/02/JSP%E7%AE%80%E4%BB%8B/4.png"></p>
+<p>声明指令包括的是一段Java代码</p>
+<p>2.JSP脚本指令</p>
+<p>脚本指令是镶嵌在JSP页面中的Java代码</p>
+<p>主要用于处理客户端的请求</p>
+<p>3.JSP表达式指令</p>
+<p>表达式指令是JSP提供的一种简单方法用于访问可用的Java取值或其他表达式，还可用于给动作指令传递参数</p>
+<p>注意：表达式不能使用分号结尾</p>
+<p>4.JSP注释指令</p>
+<p>注释指令是增强代码的可读性</p>
+<p>（1）只在JSP中显示</p>
+<p>&lt;%–注释内容–%&gt;</p>
+<p>（2）JSP脚本元素中的注释</p>
+<p>&#x2F;&#x2F; 注释内容       &#x2F;* 注释内容*&#x2F;</p>
+<p>（3）JSP生成的HTML在客户端显示的注释</p>
+<!-- 注释内容-->
+
+<p>5.动作指令</p>
+<p>是在请求处理阶段向JSP容器发送指令</p>
+<p><img src="/2022/05/02/JSP%E7%AE%80%E4%BB%8B/5.png"></p>
+<p>注意：标签中的tag、attribute、value对大小写敏感，value必须放在’ ‘或” “内，&#x3D;和value之间不能有空格</p>
+<p>6.JSP标签注意事项</p>
+<p>JSP页面中的伪指令元素会对整个页面产生作用，在合成的JSP页面中不能存放两个及以上的同名变量</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

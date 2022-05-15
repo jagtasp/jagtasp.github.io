@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java——线程与多线程 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、线程简介
+1.程序是一段静态代码，是应用软件执行的蓝本。
+2.进程是程序的一次动态执行过程，它对应了从代码加载，执行至执行完毕的一个完整过程，这个过程也是进程本身从产生、发展至消亡的过程。
+3.,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Java——线程与多线程 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、线程简介
+1.程序是一段静态代码，是应用软件执行的蓝本。
+2.进程是程序的一次动态执行过程，它对应了从代码加载，执行至执行完毕的一个完整过程，这个过程也是进程本身从产生、发展至消亡的过程。
+3.,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Java——线程与多线程 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、线程简介
+1.程序是一段静态代码，是应用软件执行的蓝本。
+2.进程是程序的一次动态执行过程，它对应了从代码加载，执行至执行完毕的一个完整过程，这个过程也是进程本身从产生、发展至消亡的过程。
+3.,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Java——线程与多线程</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Java——线程与多线程</h1>
+        <div class="stuff">
+            <span>四月 01, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaEE/" rel="tag">JavaEE</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、线程简介</p>
+<p>1.程序是一段静态代码，是应用软件执行的蓝本。</p>
+<p>2.进程是程序的一次动态执行过程，它对应了从代码加载，执行至执行完毕的一个完整过程，这个过程也是进程本身从产生、发展至消亡的过程。</p>
+<p>3.线程是比进程更小的执行单位。进程在其执行过程中，可以产生多个线程，形成多条执行线索，每条线索，即每个线程也有它自身的产生、存在和消亡的过程，也是一个动态的概念。</p>
+<p>4.线程和进程的区别</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/1.png"></p>
+<p>5.Java中的线程</p>
+<p>每个Java程序都有一个默认的主线程</p>
+<p>当Java加载代码发现mian方法之后，就会立即启动一个线程，这个线程称为主线程。</p>
+<p>如果main方法中没有创建其他的线程，那么当main方法执行完最后一个语句，JVM就会结束Java应用程序——单线程。</p>
+<p>如果main方法中又创建了其他线程，那么JVM就要在主线程和其他线程之间轮流切换，JVM要等程序中所有线程都结束之后才结束程序——多线程。</p>
+<p>6.主线程的特点：</p>
+<p>是产生其他子线程的线程</p>
+<p>不一定是最后完成执行的线程</p>
+<p>7.多线程的优势</p>
+<p>（1）减轻编写交互频繁、涉及面多的程序的困难。</p>
+<p>（2）程序的吞吐量会得到改善。</p>
+<p>（3）有多个处理器的系统可以并发执行不同的线程（否则，任何时刻只有一个线程在运行）。</p>
+<p>（4）“同时”执行是人的感觉，在线程之间实际上轮换执行。</p>
+<p>8.线程的生命周期</p>
+<p>五个状态：新建、就绪、执行、阻塞和死亡</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/2.png"></p>
+<p>9.线程状态介绍</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/3.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/4.png"></p>
+<p>二、Java中创建多线程</p>
+<p>1.Java中两种创建线程的方法</p>
+<p>（1）继承Thread类</p>
+<p>重写run()方法</p>
+<p>new一个线程对象</p>
+<p>调用对象的start()启动线程</p>
+<p>（2）实现Runnable接口</p>
+<p>实现run()方法</p>
+<p>创建一个Runnable类的对象r，new MyRunnable()</p>
+<p>创建Thread类对象并将Runnable对象作为参数，new Thread(r)</p>
+<p>调用Thread对象的start()启动线程</p>
+<p>2.创建线程的方式对比</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/5.png"></p>
+<p>3.线程创建的问题</p>
+<p>（1）线程的名字：JVM给的&#x2F;自定义，setName方法设置。</p>
+<p>（2）获取当前线程对象的方法：Thread.currentThread()</p>
+<p>（3）在一个程序里多个线程只能保证其开始时间，而无法保证其结束时间，执行顺序也无法保证。</p>
+<p>（4）一个线程的run方法执行结束后，该线程结束</p>
+<p>（5）一个线程只能被启动一次</p>
+<p>（6）线程的调度是JVM的一部分，在一个CPU的机器上，一次只能运行一个线程，JVM线程调度程序决定实际运行哪个处于可运行状态的线程，才用队列形式。</p>
+<p>4.线程中常见的方法</p>
+<p>（1）start():启动线程，让线程从新建状态进入就绪队列排队</p>
+<p>（2）run():线程对象被调度之后所执行的操作</p>
+<p>（3）sleep():暂停线程的执行，让当前线程休眠若干毫秒</p>
+<p>（4）currentThread():返回对当前正在执行的线程对象的引用</p>
+<p>（5）isAlive():测试线程的状态，新建，死亡状态的线程返回</p>
+<p>（6）interrupt():“吵醒”休眠的线程，唤醒”自己“</p>
+<p>（7）yield():暂停正在执行的线程，让同等优先级的线程运行</p>
+<p>（8）join():当前线程等待调用该方法的线程结束后，再排队等待CPU资源</p>
+<p>（9）stop():终止线程</p>
+<p>5.阻止线程执行的方法</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/6.png"></p>
+<p>6.线程睡眠</p>
+<p>通过Thread的静态方法sleep来实现线程的睡眠。当线程睡眠时，它暂停执行，在苏醒之前不会返回到可运行状态。当睡眠时间到期，则返回到可运行状态。</p>
+<p>使用场景：线程执行太快，需要强制设定为下一轮执行</p>
+<p>实现方法：再run方法中加入代码</p>
+<p>注意事项：</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/7.png"></p>
+<p>7.线程的优先级</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/8.png"></p>
+<p>8.线程优先级及线程让步</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/9.png"></p>
+<p>9.线程阻塞</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/10.png"></p>
+<p>10.小结</p>
+<p>（1）线程离开运行状态的方法：</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/11.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/12.png"></p>
+<p>三、多线程的同步和死锁</p>
+<p>1.多线程的问题</p>
+<p>多线程程序在设计上最大的困难在于各个线程的控制流彼此独立，使得各个线程之间的代码是乱序执行的，而且各个线程共享资源，所有多线程会带来线程调度、同步、死锁等一系列问题。</p>
+<p>2.资源啊同步——对象互斥锁</p>
+<p>Java中每个对象都应对应一个称为”互斥锁“的标记</p>
+<p>关键字synchronized与对象互斥锁联合起来使用保证对象在任意时刻只能由一个线程访问。</p>
+<p>synchronized可以修饰方法，表示这个方法在任意时刻只能由一个线程访问</p>
+<p>synchronized可以修饰类，则表明该类的所有对象共用一把锁</p>
+<p>当多个线程共享一个资源的时候需要进行同步，但是过多的同步可能导致死锁</p>
+<p>3.多线程同步模型</p>
+<p>生产者——消费者示例</p>
+<p>4.多线程问题——死锁</p>
+<p>当两个或两个以上的线程在执行过程中，因争夺资源而造成了互相等待，并且无外力作用，它们都将无法推进下去的现象称为系统处在死锁状态或系统产生了死锁。</p>
+<p>资源占用是互斥的，当某个线程提出申请资源后，使得有关线程在无外力协助下，永远分配不到必需的资源而无法继续运行。</p>
+<p>5.产生思索地必要条件</p>
+<p>（1）互斥条件：指线程对所分配到的资源进行排它性使用</p>
+<p>（2）请求和保持条件：指线程已经保持至少一个资源，但又提出了新的资源请求</p>
+<p>（3）不可剥夺条件：进程已获得的资源，在未使用之前，不能被剥夺，只能在使用完由自己释放</p>
+<p>（4）环路等待条件：指在发生死锁时，必然存在一个线程——资源的环形链</p>
+<p>6.出现死锁的情况</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/13.png"></p>
+<p>多线程（multithreading）,是指从软件或者硬件上实现多个线程并发执行的技术具有多线程能力的计算机引诱硬件支持而能够在同一时间执行多于一个线程，进而提升整体处理性能，具有这种能力的系统包括对称处理机、多核心处理器以及芯片级多处理或同时多线程处理器。</p>
+<p>对称处理机，在均匀存储器访问（UMA）系统中，一个共享处理器可以为所有处理器通过一个互联网络进行访问，就如同一个单处理器访问它的存储器一样，所有处理器对任何存储单元有相同的访问时间。用于UMA中的互联网网络可以是单总线、多总线或者是交叉开关。因为共享存储器的访问是平衡的，故这类系统称为SMP（对称多处理器）系统。每个处理器有相等的机会读&#x2F;写存储器，也有相同的访问速度。</p>
+<p>在计算领域，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86">对称多处理</a>是一种多处理机硬件架构，有两个或更多的相同的处理机（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>）共享同一主存，由一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>控制。当前最常见的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%E7%B3%BB%E7%BB%9F">多处理机系统</a>使用了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86">对称多处理</a>架构。以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E6%A0%B8%E5%A4%84%E7%90%86%E5%99%A8">多核处理器</a>为例，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86">对称多处理</a>架构就是这些核，它把这些核当作不同的处理器。不同的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间可以由总线、矩阵开关或片上mesh网络来连接。使用总线或矩阵开关的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86">对称多处理</a>架构有可扩展性方面的瓶颈，它是由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间连接的带宽、能耗，以及内存核<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97">磁盘阵列</a>等引起的。使用mesh连接的架构避免了这些瓶颈。它能够支持更多数量的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>，具有几乎线性的可扩展性，代价是牺牲可编程性。 使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86">对称多处理</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F">计算机系统</a>被称为“对称多处理机”或“对称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%E7%B3%BB%E7%BB%9F">多处理机系统</a>”。在对称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%E7%B3%BB%E7%BB%9F">多处理机系统</a>上，任何<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>可以运行任何任务，不管任务的数据在内存的什么地方，只要一个任务没有同时运行在多个处理器上面。有了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>的支持，对称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%E7%B3%BB%E7%BB%9F">多处理机系统</a>就能够轻易的让任务在不同的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间移动，以次来有效的均衡负载。 </p>
+<p>优点和缺点：优点是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%B6%E8%A1%8C%E5%BA%A6">并行度</a>很高，但是由于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF">系统总线</a>的带宽是有限的，故<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>的数目是受限的。 </p>
+<p>几种多处理（MP）系统</p>
+<p>非共享MP（纯群集）</p>
+<p>每个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>都是一个完全独立的机器，运行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>的一个副本。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间没有共享的部分（每一个都有自己的内存，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98">高速缓存</a>和磁盘），但是它们是互联的。通过 LAN 连接时，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间是松散<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88">耦合</a>的。而通过<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BD%AC%E6%8D%A2%E5%99%A8">转换器</a>连接时，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间是紧密<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88">耦合</a>的。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>之间的通信是通过<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%81">消息传送</a>来实现的。</p>
+<p>这样一个系统的优点是它具有很好的可伸缩性和高可用性。而缺点则是该系统是一个不为人熟悉的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B">编程</a>模型（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%81">消息传送</a>）。</p>
+<p>共享磁盘MP</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>拥有自身的内存和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98">高速缓存</a>。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>并行运行并共享磁盘。每个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>都运行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>的一份副本，并且处理器之间是松散<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88">耦合</a>的（通过 LAN 连接）。处理器之间的通信是通过信息传送实现的。</p>
+<p>共享磁盘的优点是保留了熟悉的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B">编程</a>模型的一部分（磁盘数据是可寻址和连续的，而内存则不是），而且与<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>的系统相比，这种系统更容易实现高可用性。缺点是由于在对共享数据进行物理和逻辑访问时存在瓶颈，它的可伸缩性受到限制。</p>
+<p>共享内存群集（SMC）</p>
+<p>一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>群集中的所有<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>有自己的资源（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8">主存储器</a>、磁盘和 I&#x2F;0），并且每个处理器运行一份<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>的副本。处理器之间是紧密<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88">耦合</a>的（通过一个转换器连接）。处理器之间的通信是通过<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>实现的。 </p>
+<p>共享内存MP</p>
+<p>所有<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>通过一条高速<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%80%BB%E7%BA%BF">总线</a>或者一个转换器在同一机器中紧密<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88">耦合</a>。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>共享同样的全局内存、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%A3%81%E7%9B%98">磁盘</a>和 I&#x2F;0 设备。只有一份<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>的副本跨所有<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%84%E7%90%86%E5%99%A8">处理器</a>运行，并且操作系统必须设计为能利用这种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">体系结构</a>（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>操作系统）。 </p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/14.png"></p>
+<p>多线程的小例子：</p>
+<p>示例一：三个售票窗口同时出售20张票</p>
+<p>程序分析：1.票数要使用同一个静态值      2.为保证不会出现卖出同一个票数，要Java多线程同步锁</p>
+<p>设计思路：1.创建一个站台类Station，继承Thread，重写run方法，在run方法里面执行售票操作，售票要同步锁：即有一个站台卖这张票时，其他站台要等这张票卖完    2.创建主方法调用类</p>
+<p>创建一个站台类，继承Thread</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.alibaba.thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Station</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过构造方法给线程名字赋值</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Station</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(name);    <span class="comment">//给线程名字赋值</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//为了保持票数的一致，票数要静态</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">tick</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//创建一个静态钥匙，值是任意的，相当于信号量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">Object</span> <span class="variable">ob</span> <span class="operator">=</span> <span class="string">&quot;aa&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//重写run方法，是先买票操作</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">while</span>(tick&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="comment">//票数大于0，还有票可以卖出</span></span><br><span class="line">			<span class="keyword">synchronized</span> (ob) &#123;</span><br><span class="line">				<span class="comment">//必须使用一个锁，互斥使用信号量</span></span><br><span class="line">				<span class="keyword">if</span>(tick&gt;<span class="number">0</span>) &#123;</span><br><span class="line">					System.out.println(getName()+<span class="string">&quot;卖出了第&quot;</span>+tick+<span class="string">&quot;张票&quot;</span>);</span><br><span class="line">					tick--;</span><br><span class="line">				&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(<span class="string">&quot;票卖完了&quot;</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">try</span> &#123;<span class="comment">//休眠1秒</span></span><br><span class="line">				sleep(<span class="number">1000</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建主方法调用类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.alibaba.thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainClass</span> &#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * java多线程同步锁的使用</span></span><br><span class="line"><span class="comment">	 * 示例：三个售票窗口同时出手10张票</span></span><br><span class="line"><span class="comment">	 * */</span></span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//实例化站台对象，并为每一个站台取名字</span></span><br><span class="line">		<span class="type">Station</span> <span class="variable">station1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Station</span>(<span class="string">&quot;窗口1&quot;</span>);</span><br><span class="line">		<span class="type">Station</span> <span class="variable">station2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Station</span>(<span class="string">&quot;窗口2&quot;</span>);</span><br><span class="line">		<span class="type">Station</span> <span class="variable">station3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Station</span>(<span class="string">&quot;窗口3&quot;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//让每一个站台对象开始工作</span></span><br><span class="line">		station1.start();</span><br><span class="line">		station2.start();</span><br><span class="line">		station3.start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/15.png"></p>
+<p>示例二：两个人AB通过一个账户A在柜台取钱和B在ATM机取钱</p>
+<p>程序分析：钱的数量要设置成一个静态的变量。两个人要取的同一个对象值</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

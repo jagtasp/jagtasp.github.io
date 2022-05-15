@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>编程练习 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,如果一个分数的分子和分母的最大公约数是 11，这个分数称为既约分数。
+例如 \frac{3}{4} ,\frac{1}{8} ,\frac{7}{1}43,81,17， 都是既约分数。
+请问，有多少,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="编程练习 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,如果一个分数的分子和分母的最大公约数是 11，这个分数称为既约分数。
+例如 \frac{3}{4} ,\frac{1}{8} ,\frac{7}{1}43,81,17， 都是既约分数。
+请问，有多少,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="编程练习 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,如果一个分数的分子和分母的最大公约数是 11，这个分数称为既约分数。
+例如 \frac{3}{4} ,\frac{1}{8} ,\frac{7}{1}43,81,17， 都是既约分数。
+请问，有多少,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">编程练习</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">编程练习</h1>
+        <div class="stuff">
+            <span>三月 25, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>如果一个分数的分子和分母的最大公约数是 11，这个分数称为既约分数。</p>
+<p>例如 \frac{3}{4} ,\frac{1}{8} ,\frac{7}{1}43,81,17， 都是既约分数。</p>
+<p>请问，有多少个既约分数，分子和分母都是 11 到 20202020 之间的整数（包括 11 和 20202020）？</p>
+<p>运行限制</p>
+<ul>
+<li><p>最大运行时间：2s</p>
+</li>
+<li><p>最大运行内存: 128M</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span> <span class="comment">//辗转相除法求最大公约数</span></span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">if</span>(a%b==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">else</span>;</span><br><span class="line">    <span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 请在此输入您的代码</span></span><br><span class="line">  <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2020</span>;i++) <span class="comment">//分母</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">2020</span>;j++) <span class="comment">//分子</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span>(gcd(i,j)==<span class="number">1</span>)</span><br><span class="line">       &#123;</span><br><span class="line">         count++;</span><br><span class="line">       &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,count); </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>如下图所示，小明用从 11 开始的正整数“蛇形”填充无限大的矩阵。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 2 6 7 15 ...</span><br><span class="line">3 5 8 14 ...</span><br><span class="line">4 9 13 ...</span><br><span class="line">10 12 ...</span><br><span class="line">11 ...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>容易看出矩阵第二行第二列中的数是 55。请你计算矩阵中第 2020 行第 2020 列的数是多少？</p>
+<p> 运行限制</p>
+<ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 128M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">include&lt;stdio.h&gt;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">38</span>;i++)&#123;</span><br><span class="line">      count += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> num = (<span class="number">39</span> + <span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">    num = num + count;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,num);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>小蓝要用七段码数码管来表示一种特殊的文字。</p>
+<p><img src="/2022/03/25/%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/%5C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%5C2.jpg" alt="图片描述"></p>
+<p>上图给出了七段码数码管的一个图示，数码管中一共有 77 段可以发光的二 极管，分别标记为 a, b, c, d, e, f, ga,b,c,d,e,f,g。</p>
+<p>小蓝要选择一部分二极管（至少要有一个）发光来表达字符。在设计字符 的表达时，要求所有发光的二极管是连成一片的。</p>
+<p>例如：bb 发光，其他二极管不发光可以用来表达一种字符。</p>
+<p>例如 cc 发光，其他二极管不发光可以用来表达一种字符。这种方案与上 一行的方案可以用来表示不同的字符，尽管看上去比较相似。</p>
+<p>例如：a, b, c, d, ea,b,c,d,e 发光，f, gf,g 不发光可以用来表达一种字符。</p>
+<p>例如：b, fb,f 发光，其他二极管不发光则不能用来表达一种字符，因为发光 的二极管没有连成一片。</p>
+<p>请问，小蓝可以用七段码数码管表达多少种不同的字符？</p>
+<h3 id="运行限制"><a href="#运行限制" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 128M</li>
+</ul>
+<p>利用回溯算法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BackTrack</span><span class="params">(<span class="type">int</span> graph[][<span class="number">7</span>],<span class="type">int</span> visit[],<span class="type">int</span> n,<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;n;x++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(visit[x]!=<span class="number">1</span>&amp;&amp;graph[i][x]!=<span class="number">0</span>)&#123;</span><br><span class="line">      visit[x]=<span class="number">1</span>;</span><br><span class="line">      count+=<span class="built_in">BackTrack</span>(graph,visit,n,x);</span><br><span class="line">      visit[x]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> graph[<span class="number">7</span>][<span class="number">7</span>]=&#123;</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="type">int</span> visit[<span class="number">7</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="built_in">BackTrack</span>(graph,visit,<span class="number">7</span>,<span class="number">0</span>)/<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">include&lt;stdio.h&gt;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">38</span>;i++)&#123;</span><br><span class="line">      count += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> num = (<span class="number">39</span> + <span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">    num = num + count;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,num);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="comment">// 1:无需package</span></span><br><span class="line"><span class="comment">// 2: 类名必须Main, 不可修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="type">int</span>[][] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">8</span>][<span class="number">8</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">8</span>];</span><br><span class="line">        <span class="keyword">static</span> <span class="type">boolean</span>[] v = <span class="keyword">new</span> <span class="title class_">boolean</span>[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        creatGraph();</span><br><span class="line">        dfs(<span class="number">1</span>);</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        <span class="comment">//在此输入您的代码...</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">creatGraph</span><span class="params">()</span> &#123;</span><br><span class="line">        arr[<span class="number">1</span>][<span class="number">2</span>] = arr[<span class="number">1</span>][<span class="number">6</span>] = <span class="number">1</span>;</span><br><span class="line">        arr[<span class="number">2</span>][<span class="number">1</span>] = arr[<span class="number">2</span>][<span class="number">7</span>] = arr[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line">        arr[<span class="number">3</span>][<span class="number">2</span>] = arr[<span class="number">3</span>][<span class="number">4</span>] = arr[<span class="number">3</span>][<span class="number">7</span>] = <span class="number">1</span>;</span><br><span class="line">        arr[<span class="number">4</span>][<span class="number">3</span>] = arr[<span class="number">4</span>][<span class="number">5</span>] = <span class="number">1</span>;</span><br><span class="line">        arr[<span class="number">5</span>][<span class="number">4</span>] = arr[<span class="number">5</span>][<span class="number">6</span>] = arr[<span class="number">5</span>][<span class="number">7</span>] = <span class="number">1</span>;</span><br><span class="line">        arr[<span class="number">6</span>][<span class="number">1</span>] = arr[<span class="number">6</span>][<span class="number">5</span>] = arr[<span class="number">6</span>][<span class="number">7</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; <span class="number">7</span>) &#123;</span><br><span class="line">            check();</span><br><span class="line">            <span class="type">int</span> <span class="variable">q</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">7</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v[i] &amp;&amp; res[i] == i) &#123;</span><br><span class="line">                    q++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (q == <span class="number">1</span>)</span><br><span class="line">                count++;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        v[k] = <span class="literal">true</span>;</span><br><span class="line">        dfs(k + <span class="number">1</span>);</span><br><span class="line">        v[k] = <span class="literal">false</span>;</span><br><span class="line">        dfs(k + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">7</span>; i++) &#123;</span><br><span class="line">            res[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">7</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt;= <span class="number">7</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i][j] != <span class="number">0</span> &amp;&amp; v[i] &amp;&amp; v[j]) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">fx</span> <span class="operator">=</span> find(i), fy = find(j);</span><br><span class="line">                    <span class="keyword">if</span> (fx != fy) &#123;</span><br><span class="line">                        res[fx] = fy;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (res[p] == p) &#123;</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res[p] = find(res[p]);</span><br><span class="line">            <span class="keyword">return</span> res[p];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>20 个圆和 2020 条直线最多能把平面分成多少个部分？</p>
+<p>运行限制</p>
+<ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 128M</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求20个圆还有20条线组成的面数</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//仅对面考虑g(n)</span></span><br><span class="line"><span class="comment">//增加第n个圆的时候，由于每个圆产生两个交点，第n个圆产生 2(n-1)个</span></span><br><span class="line"><span class="comment">// g(n)=g(n-1)+2(n-1)=g(n-2)+2(n-1+n-2)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">g</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">g</span>(n<span class="number">-1</span>)+<span class="number">2</span>*(n<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在已经有m个圆的基础上</span></span><br><span class="line"><span class="comment">//对于直线来说，第n条直线会被原本n-1条直线分成n段， f(n)=f(n-1)+n=f(n-2)+n-1+n</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 对于原本有m个圆0直线的，增加一条新的直线分割多2m</span></span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">g</span>(m);</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="built_in">f</span>(<span class="number">0</span>,m)+<span class="number">2</span>*m;<span class="comment">//注意n为1的特殊情况：原本没有直线了！只能产生与圆相交分割出来的平面</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">f</span>(n<span class="number">-1</span>,m)+<span class="number">2</span>*m+n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// f(0)=g(m)</span></span><br><span class="line"><span class="comment">// f(1)=f(0)+2m</span></span><br><span class="line"><span class="comment">// f(2)=f(1)+2m+2</span></span><br><span class="line"><span class="comment">// f(3)=f(2)+2m+3</span></span><br><span class="line"><span class="comment">// f(4)=f(3)+2m+4</span></span><br><span class="line"><span class="comment">// f(n)=f(n-1)+2m+n</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">  <span class="comment">// 请在此输入您的代码</span></span><br><span class="line">  cout&lt;&lt;<span class="built_in">f</span>(<span class="number">20</span>,<span class="number">20</span>)&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>小蓝给学生们组织了一场考试，卷面总分为 100 分，每个学生的得分都是一个 0 到 100 的整数。</p>
+<p>请计算这次考试的最高分、最低分和平均分。</p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入的第一行包含一个整数 n\ (1 ≤ n ≤ 10^4)n (1≤n≤104)，表示考试人数。</p>
+<p>接下来 nn 行，每行包含一个 0 至 100 的整数，表示一个学生的得分。</p>
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出三行。</p>
+<p>第一行包含一个整数，表示最高分。</p>
+<p>第二行包含一个整数，表示最低分。</p>
+<p>第三行包含一个实数，四舍五入保留正好两位小数，表示平均分。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">80</span><br><span class="line">92</span><br><span class="line">56</span><br><span class="line">74</span><br><span class="line">88</span><br><span class="line">99</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">99</span><br><span class="line">10</span><br><span class="line">71.29</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行限制-1"><a href="#运行限制-1" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 256M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d\n&quot;</span>,&amp;n);</span><br><span class="line">  <span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">  <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="type">int</span> *arr;</span><br><span class="line">  </span><br><span class="line">  arr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d\n&quot;</span>,&amp;arr[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;n<span class="number">-1</span>;j++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n-j<span class="number">-1</span>;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[i]&lt;arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[i+<span class="number">1</span>];</span><br><span class="line">        arr[i+<span class="number">1</span>] = temp;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    count += arr[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">double</span> num = <span class="number">1.0</span>*count/n;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,arr[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,arr[n<span class="number">-1</span>]);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,num);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>2020 年春节期间，有一个特殊的日期引起了大家的注意：2020 年 2 月 2 日。因为如果将这个日期按 “yyyymmdd” 的格式写成一个 8 位数是 20200202，恰好是一个回文数。我们称这样的日期是回文日期。</p>
+<p>有人表示 20200202 是 “千年一遇” 的特殊日子。对此小明很不认同，因为不到 2 年之后就是下一个回文日期：20211202 即 2021 年 12 月 2 日。</p>
+<p>也有人表示 20200202 并不仅仅是一个回文日期，还是一个 ABABBABA 型的回文日期。对此小明也不认同，因为大约 100 年后就能遇到下一个 ABABBABA 型的回文日期：21211212 即 2121 年 12 月 12 日。算不上 “千年一遇”，顶多算 “千年两遇”。</p>
+<p>给定一个 8 位数的日期，请你计算该日期之后下一个回文日期和下一个 ABABBABA 型的回文日期各是哪一天。</p>
+<h3 id="输入描述-1"><a href="#输入描述-1" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入包含一个八位整数 NN，表示日期。</p>
+<p>对于所有评测用例，10000101 \leq N \leq 8999123110000101≤N≤89991231，保证 NN 是一个合法日期的 8 位数表示。</p>
+<h3 id="输出描述-1"><a href="#输出描述-1" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出两行，每行 1 个八位数。第一行表示下一个回文日期，第二行表示下一个 ABABBABA 型的回文日期。</p>
+<h3 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20200202</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20211202</span><br><span class="line">21211212</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行限制-2"><a href="#运行限制-2" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 256M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>对于一个字符串 SS，我们定义 SS 的分值 f(S)f(S) 为 SS 中恰好出现一次的字符个数。例如 f(aba) &#x3D; 1，f(abc) &#x3D; 3, f(aaa) &#x3D; 0f(aba)&#x3D;1，f(abc)&#x3D;3,f(aaa)&#x3D;0。</p>
+<p>现在给定一个字符串 S_{0 \cdots n − 1}S0⋯n−1（长度为 nn，1 \leq n \leq 10^51≤n≤105），请你计算对于所有 SS 的非空子串 S_{i \cdots j}(0 ≤ i ≤ j &lt; n)Si⋯j(0≤i≤j&lt;n)，f(S_{i \cdots j})f(Si⋯j) 的和是多少。</p>
+<h3 id="输入描述-2"><a href="#输入描述-2" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入一行包含一个由小写字母组成的字符串 SS。</p>
+<h3 id="输出描述-2"><a href="#输出描述-2" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出一个整数表示答案。</p>
+<h3 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ababc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">21</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行限制-3"><a href="#运行限制-3" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 256M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>科学家小蓝来到了一个荒岛，准备对这个荒岛进行探测考察。</p>
+<p>小蓝使用了一个超声定位设备来对自己进行定位。为了使用这个设备，小蓝需要在不同的点分别安装一个固定的发射器和一个固定的接收器。小蓝手中还有一个移动设备。定位设备需要从发射器发射一个信号到移动设备，移动设备收到后马上转发，最后由接收器接收，根据这些设备之间传递的时间差就能计算出移动设备距离发射器和接收器的两个距离，从而实现定位。</p>
+<p>小蓝在两个位置已经安装了发射器和接收器，其中发射器安装在坐标 (x_A, y_A)(xA,yA)，接收器安装在坐标 (x_B, y_B)(xB,yB) 小蓝的发射器和接收器可能在岛上，也可能不在岛上。</p>
+<p>小蓝的定位设备设计有些缺陷，当发射器到移动设备的距离加上移动设备到接收器的距离之和大于 LL 时，定位设备工作不正常。当和小于等于 LL 时，定位设备工作正常。为了安全，小蓝只在定位设备工作正常的区域探测考察。</p>
+<p>已知荒岛是一个三角形，三个顶点的坐标分别为 (x_1, y_1), (x_2, y_2), (x_3, y_3)(x1,y1),(x2,y2),(x3,y3)。</p>
+<p>请计算，小蓝在荒岛上可以探测到的面积有多大？</p>
+<h3 id="输入描述-3"><a href="#输入描述-3" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入的第一行包含五个整数，分别为 x_A, y_A, x_B, y_B, LxA,yA,xB,yB,L。</p>
+<p>第二行包含六个整数，分别为 x_1, y_1, x_2, y_2, x_3, y_3x1,y1,x2,y2,x3,y3。</p>
+<p>保证发射器的两个坐标不同，−1000 \leq x_A, y_A, x_B, y_B\leq 1000, −1000 \leq x_1, y_1, x_2, y_2, x_3, y_3 \leq 1000, −1000 \leq L \leq 1000−1000≤xA,yA,xB,yB≤1000,−1000≤x1,y1,x2,y2,x3,y3≤1000,−1000≤L≤1000。</p>
+<h3 id="输出描述-3"><a href="#输出描述-3" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出一行，包含一个实数，四舍五入保留 2 位小数，表示答案。</p>
+<p>考虑到计算中的误差，只要你的输出与参考输出相差不超过 0.01 即可。</p>
+<h3 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 6 4 12 12</span><br><span class="line">0 2 13 2 13 15</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">39.99</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>样例说明</p>
+</blockquote>
+<p>荒岛的形状和定位设备工作正常的区域如下图所示，蓝色的三角形表示荒岛，红色的曲线围成的区域为定位设备工作正常的区域。</p>
+<p><img src="/2022/03/25/%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/%5C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%5C1.jpg" alt="图片描述"></p>
+<h3 id="运行限制-4"><a href="#运行限制-4" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 256M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>小蓝最近学习了一些排序算法，其中冒泡排序让他印象深刻。</p>
+<p>在冒泡排序中，每次只能交换相邻的两个元素。</p>
+<p>小蓝发现，如果对一个字符串中的字符排序，只允许交换相邻的两个字符，在所有可能的排序方案中，冒泡排序的总交换次数是最少的。</p>
+<p>例如，对于字符串 <code>lan</code> 排序，只需要 1 次交换。对于字符串 <code>qiao</code> 排序，总共需要 4 次交换。</p>
+<p>小蓝的幸运数字是 VV，他想找到一个只包含小写英文字母的字符串，对这个串中的字符进行冒泡排序，正好需要 VV 次交换。请帮助小蓝找一个这样的字符串。如果可能找到多个，请告诉小蓝最短的那个。如果最短的仍然有多个，请告诉小蓝字典序最小的那个。请注意字符串中可以包含相同的字符。</p>
+<h3 id="输入描述-4"><a href="#输入描述-4" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入一行包含一个整数 V\ (1 \leq V \leq 10^4)V (1≤V≤104)，为小蓝的幸运数字。</p>
+<h3 id="输出描述-4"><a href="#输出描述-4" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出一个字符串，为所求的答案。</p>
+<h3 id="输入输出样例-4"><a href="#输入输出样例-4" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1"></a>示例 1</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bbaa</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2"></a>示例 2</h4><blockquote>
+<p>输入</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jihgfeeddccbbaa</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行限制-5"><a href="#运行限制-5" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
+<li>最大运行时间：1s</li>
+<li>最大运行内存: 256M</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text">运行限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">输入描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">输出描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6-1"><span class="toc-number">5.</span> <span class="toc-text">运行限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-1"><span class="toc-number">6.</span> <span class="toc-text">输入描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0-1"><span class="toc-number">7.</span> <span class="toc-text">输出描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-1"><span class="toc-number">8.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-number">8.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6-2"><span class="toc-number">9.</span> <span class="toc-text">运行限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-2"><span class="toc-number">10.</span> <span class="toc-text">输入描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0-2"><span class="toc-number">11.</span> <span class="toc-text">输出描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-2"><span class="toc-number">12.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="toc-number">12.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6-3"><span class="toc-number">13.</span> <span class="toc-text">运行限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-3"><span class="toc-number">14.</span> <span class="toc-text">输入描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0-3"><span class="toc-number">15.</span> <span class="toc-text">输出描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-3"><span class="toc-number">16.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-3"><span class="toc-number">16.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6-4"><span class="toc-number">17.</span> <span class="toc-text">运行限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-4"><span class="toc-number">18.</span> <span class="toc-text">输入描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0-4"><span class="toc-number">19.</span> <span class="toc-text">输出描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-4"><span class="toc-number">20.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-number">20.1.</span> <span class="toc-text">示例 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="toc-number">20.2.</span> <span class="toc-text">示例 2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6-5"><span class="toc-number">21.</span> <span class="toc-text">运行限制</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java——Servlet模型 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、什么是Servlet
+Servlet是（Server Applet）是Java Servlet的简称，是小服务程序或服务连接器，是用Java编写的服务器端程序，主要功能在于交互式地浏览和修改数据,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Java——Servlet模型 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、什么是Servlet
+Servlet是（Server Applet）是Java Servlet的简称，是小服务程序或服务连接器，是用Java编写的服务器端程序，主要功能在于交互式地浏览和修改数据,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Java——Servlet模型 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、什么是Servlet
+Servlet是（Server Applet）是Java Servlet的简称，是小服务程序或服务连接器，是用Java编写的服务器端程序，主要功能在于交互式地浏览和修改数据,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Java——Servlet模型</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Java——Servlet模型</h1>
+        <div class="stuff">
+            <span>四月 01, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaEE/" rel="tag">JavaEE</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、什么是Servlet</p>
+<p>Servlet是（Server Applet）是Java Servlet的简称，是小服务程序或服务连接器，是用Java编写的服务器端程序，主要功能在于交互式地浏览和修改数据，生成动态Web内容。</p>
+<p>1.编写部署Servlet程序</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/1.png"></p>
+<p>二、Servlet中的请求与响应</p>
+<p>1.接收请求</p>
+<p>TomCat启动后Web容器首先做的工作</p>
+<p>（1）Servlet与URL对应</p>
+<p>（2）完成Servlet名称注册</p>
+<p>（3）创建Servlet实例</p>
+<p>接收到请求后服务器转交请求给Web容器</p>
+<p>Web容器产生请求对象和响应对象</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/2.png"></p>
+<p>调用Servlet的service()方法，并将请求和响应对象作为参数传入该方法</p>
+<p>Service方法根据请求方式调用doXXX()方法</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/3.png"></p>
+<p>HttpServletRequest接口以参数形式传递到service方法里。</p>
+<p>Servlet接口的service方法</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/5.png"></p>
+<p>service()方法根据请求类型调用doXXX()方法</p>
+<p>所以必须重写doXXX()方法</p>
+<p>2.解析请求</p>
+<p>getParameter()方法</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/6.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/7.png"></p>
+<p>3.返回响应</p>
+<p>在doXXX()方法中使用请求对象获取请求信息，响应对象返回响应结果（PrintWrite对象）</p>
+<p>销毁请求、响应对象</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/4.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/8.png"></p>
+<p>三、Servlet中请求数据的传递、请求转发与请求重定向</p>
+<p>1.Servlet应用执行过程——转发请求</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/9.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/11.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/13.png"></p>
+<p>2.Servlet应用执行过程——重定向</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/10.png"></p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/12.png"></p>
+<p>3.请求转发、请求重定向的区别</p>
+<p>（1）本质：</p>
+<p>请求重定向：二次请求</p>
+<p>请求转发：一次请求</p>
+<p>（2）速度：</p>
+<p>请求转发 &gt; 请求重定向</p>
+<p>（3）Attribute参数</p>
+<p>请求转发可共享参数</p>
+<p>请求重定向不可共享参数</p>
+<p>四、Servlet应用开发接口</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/14.png"></p>
+<p>1.Servlet接口</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/15.png"></p>
+<p>2.GenericServlet抽象类</p>
+<p>实现了Servlet接口</p>
+<p>提供了Servlet接口中除service()方法外4个方法的简单实现</p>
+<p>子类必须实现service()方法</p>
+<p>未指定协议的Servlet</p>
+<p>3.HttpServlet抽象类</p>
+<p>基于HTTP协议的Servlet</p>
+<p>继承自GenericServlet</p>
+<p>必须重写doXXX()方法处理业务逻辑&#x2F;返回响应</p>
+<p>扩展</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/16.png"></p>
+<p>五、Servlet的生命周期</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/17.png"></p>
+<p>1.Servlet生命周期序列图</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/18.png"></p>
+<p>2.Servlet什么时候实例化</p>
+<p>在服务器启动加载网站时</p>
+<p>第一次访问Servlet时</p>
+<p>具体什么时候加载需要通过web.xml配置文件中，对应Servlet设置项的&lt;\load-on-startup&gt;节点进行设置</p>
+<p>（1）标记容器是否在启动的时候就加载这个servlet</p>
+<p>（2）当值为0或者大于0时，表示容器在应用启动时就加载这个servlet</p>
+<p>（3）当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载</p>
+<p>3.Servlet对init方法的调用</p>
+<p>init(ServletConfig config)方法</p>
+<p>（1）在加载Servlet实例成功后调用init()方法，一般作一些初始化的工作</p>
+<p>（2）在一个Servlet的生命周期中只执行一次</p>
+<p>（3）通过config.getInitParameter(Param)可取得web.xml中的参数</p>
+<p>4.Servlet在什么时候被销毁</p>
+<p>（1）服务器关闭</p>
+<p>（2）更新、停止Web模块的时候</p>
+<p>（3）由Servlet容器根据情况和</p>
+<p>5.Servlet对destory方法的调用</p>
+<p>destory()方法</p>
+<p>（1）在Servlet实例被销毁之前调用</p>
+<p>（2）在一个Servlet的生命周期中只执行一次</p>
+<p>6.容器中Servlet的生命周期</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/19.png"></p>
+<p>7.Servlet生命周期总结</p>
+<p>Servlet的生命周期可以分为四个阶段</p>
+<p>（1）加载和实例化：由Servlet容器完成</p>
+<p>（2）初始化：实例化Servlet容器完成</p>
+<p>（3）处理客户请求：service方法（doGet或doPost）</p>
+<p>（4）销毁：销毁之前会调用destory方法</p>
+<p>六、Sevlet应用进阶</p>
+<p>1.ServletConfig接口</p>
+<p>ServletConfig包含Web程序部署描述符（web.xml）中定义的参数</p>
+<p>ServletConfig是由Servlet容器实例化</p>
+<p>Sevlet实例化的同时实例化对应的ServletConfig对象，并传入到init(ServletConfig config)</p>
+<p>2.ServletContext接口</p>
+<p>（1）每个Web应用启动后，Servlet容器都会创建唯一的一个ServletContext对象，该对象包含整个Web程序的信息。</p>
+<p>（2）在自己定义的Servlet中，可以通过getSevletContext()方法获得ServleContext对象</p>
+<p>3.数据共享</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/20.png"></p>
+<p>4.数据共享总结</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/21.png"></p>
+<p>七、Servlet非线程安全</p>
+<p>1.Servlet是多线程应用</p>
+<p>Servlet容器通常只创建一个Servlet实例，不同的请求都分配一个线程来进行处理，但它们操作的都是同一个Servlet实例，所以可使用Servlet的成员变量共享数据，所以也产生了线程安全的问题。</p>
+<p>2.Servlet进阶</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/22.png"></p>
+<p>3.目前接触到的类型的总结</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/23.png"></p>
+<p>八、web.xml与@WebServlet注解</p>
+<p>注解可实现web.xml配置文件的功能</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/24.png"></p>
+<p>@WebServlet注解</p>
+<p><img src="/2022/04/01/Java%E2%80%94%E2%80%94Servlet%E6%A8%A1%E5%9E%8B/25.png"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android疯狂讲义 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、Android应用的基本组件介绍
+（一）Activity和View
+Activity是Android应用中负责与用户交互的组件。
+View组件是所有ＵI控件、容器控件的基类，View组件就是An,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Android疯狂讲义 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、Android应用的基本组件介绍
+（一）Activity和View
+Activity是Android应用中负责与用户交互的组件。
+View组件是所有ＵI控件、容器控件的基类，View组件就是An,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Android疯狂讲义 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、Android应用的基本组件介绍
+（一）Activity和View
+Activity是Android应用中负责与用户交互的组件。
+View组件是所有ＵI控件、容器控件的基类，View组件就是An,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Android疯狂讲义</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Android疯狂讲义</h1>
+        <div class="stuff">
+            <span>四月 01, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、Android应用的基本组件介绍</p>
+<p>（一）Activity和View</p>
+<p>Activity是Android应用中负责与用户交互的组件。</p>
+<p>View组件是所有ＵI控件、容器控件的基类，View组件就是Android应用中用户实实在在看到的部分。但View组件需要放在容器组件中，或者使用Activity将它显示出起来。如果需要通过某个Activity把指定View显示出来，调用Activity的setContentView()方法即可。</p>
+<p>setContentView()方法可接受一个View对象作为参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个线性布局管理器</span></span><br><span class="line"><span class="type">LinearLayout</span> <span class="variable">layout</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinearLayout</span>(<span class="built_in">this</span>);</span><br><span class="line"><span class="comment">//设置该Activity显示layout</span></span><br><span class="line"><span class="built_in">super</span>.setContentView(layout);</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码创建了一个LinearLayout对象（它是ViewGroup的子类，ViewGroup又是View的子类），接着调用Activity的setContentView(layout)把这个布局管理器显示出来。</p>
+<p>setContentView()方法也可接受一个布局管理器的ID作为参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置Activity显示main.xml文件定义的View</span></span><br><span class="line">setContentView(R.layout.main);</span><br></pre></td></tr></table></figure>
+
+<p>Actiivty为Android应用提供了可视化用户界面，如果该Android应用需要多个用户界面，将会包含多个Activity，多个Activity组成Activity栈，当前活动的Activity位于栈顶。</p>
+<p>（二）Service</p>
+<p>通常位于后台运行，一般不需要与用户交互，因此此组件没有图形用户界面。Activity组件需要继承Activity基类，Service需要继承Service基类。一个Service组件被运行起来之后，它将拥有自己独立的生命周期，Service组件通常用于为其他组件提供后台服务或监控其他组件的运行状态。</p>
+<p>（三）BroadcastReceiver</p>
+<p>广播消息接收器，类似于事件编程中的监听器。普通监听器监听的事件源是程序中的对象，而BroadcastReceiver监听的事件源是Android应用中的其他组件。使用BroadcastReceiver组件接收广播消息比较简单，只要实现自己的BroadcastReceiver子类，并重写onReceive(Context context,Intent intent)方法即可。当其他组件通过sendBroadcast()、sendStickyBroadcast()或sendOrderedBroadcast()方法发送广播消息时，如该BroadcastReceiver也对该消息“感兴趣”（通过IntentFilter配置），BroadcastReceiver的OnReceive(Context context,Intent intent)方法将会被触发。</p>
+<p>实现了BroadcastReceiver之后，有两种方法来注册这个系统的“事件监听器”。</p>
+<p>1.在Java代码中通过Context.registReceiver()方法注册BroadcastReceiver。</p>
+<p>2.在AndroidManifest.xml文件中使用&lt;receiver…&#x2F;&gt;元素完成注册。</p>
+<p>（四）ContentProvider</p>
+<p>对于Android应用，必须相互独立，各自运行在Dalvik虚拟机实例中。多个应用程序之间会进行实时的数据交换，Android提供了一个标准：ContentProvider。用户实现自己的ContentProvider时，需要实现如下的抽象方法：</p>
+<p>1.insert(Uri,ContentValues):向ContentProvider插入数据</p>
+<p>2.delete(Uri,ContentValues):删除ContentProvider中指定数据</p>
+<p>3.update(Uri,ContentValues,String,String[]):更新ContentProvider中指定数据</p>
+<p>4.query(Uri,String[],String,String[],String):从ContentProvider中查询数据</p>
+<p>通常与ContentProvider结合使用的是ContentResolver，一个应用程序使用ContentProvider暴露自己的数据，而另一个通过ContentResolver来访问数据。</p>
+<p>（五）Intent和IntentFilter</p>
+<p>Activity、Service、BroadcastReceiver三种组件之间的通信都以Intent作为载体，只是不同的组件使用Intent、的机制略有区别。</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/1.png"></p>
+<p>二、Android应用的界面编程</p>
+<p>（一）界面编程与视图（View）组件</p>
+<p>1.视图组件与容器组件</p>
+<p>View类还有一个重要的子类ViewGroup，但ViewGroup通常作为其他组件的容器使用。</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/2.png"></p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/3.png"></p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/4.png"></p>
+<p>ViewGroup继承了View类，主要是当成容器类来使用。由于ViewGroup是一个抽象类，因此实际使用中通常是使用ViewGroup的子类来作为容器。</p>
+<p>ViewGroup容器控制其子组件的分布依赖于ViewGroup.LayoutParams、ViewGroup.MarginLayoutParams两个内部类，这两个内部类都提供了一些XML属性。ViewGroup容器中的子组件可以指定这些XML属性。</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/5.png"></p>
+<p>2.使用XML布局文件控制</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/6.png"></p>
+<p>3.在代码中控制UI界面</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/7.png"></p>
+<p>虽然可以实现，但是过于复杂，也不利于高层次的解耦，由于通过new关键字来创建UI组件，需要调用方法来设置UI组件的行为，使得代码看起来十分臃肿。通过XML文件来控制UI界面，简单。</p>
+<p>4.使用XML布局文件和Java代码混合控制UI界面</p>
+<p>这时，将变化小，行为比较固定的组件放在XML布局文件中管理，而那些变化较多，行为控制比较复杂的组件则交给Java代码来管理。</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/8.png"></p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/9.png"></p>
+<p>实现了将ImageView添加到LinearLayout容器中，点击图片进行图片的切换的效果。</p>
+<p>5.开发自定义View</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/10.png"></p>
+<p>上面的程序先创建了自定义组件（DrawView）的实例，然后程序为该组件绑定了一个OnTouchListener——监听触摸屏事件的监听器。当手指在触摸屏上移动时，将会不断的触发触摸屏事件，事件监听器中负责触发事件的坐标将被传入DrawView组件，并通知该组件重绘——这样即可保证DrawView上小球跟随手指而移动。</p>
+<p>（二）布局管理器</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/11.png"></p>
+<p>从图中可以看出，所有的布局都可以作为容器类使用，因此可以调用多个重载的addView()向布局管理器中添加组件。实际上，我们也完全可以用一个布局管理器嵌套到其他布局管理器中——因为布局管理器也继承了View，也可以作为普通UI组件使用。</p>
+<p>（二）布局管理器</p>
+<p>1.线性布局</p>
+<p>由LinearLayout类来代表，不仅可以控制各组件横向排列（通过设置android:orientation属性来控制），也可以控制各组件纵向排列。但是不会换行：当组件一个挨着一个排列到头之后，剩下的组件将不会被显示出来。</p>
+<p>LinearLayout常用的XML属性及其相关方法的说明</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/12.png"></p>
+<p>2.表格布局</p>
+<p>由TableLayout所代表，采用行、列的形式来管理UI组件，TableLayout并不需要明确的声明包含多少行、多少列，而是通过添加TableRow、其他组件来控制表格的行数和列数。</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/13.png"></p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/14.png"></p>
+<p>运行结果：</p>
+<p><img src="/2022/04/01/Android%E7%96%AF%E7%8B%82%E8%AE%B2%E4%B9%89/15.png"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

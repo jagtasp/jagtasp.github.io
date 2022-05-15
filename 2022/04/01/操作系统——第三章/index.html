@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作系统——第三章 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,第三章 处理机调度与死锁
+思维导图：
+
+一、处理机调度的基本概念
+1.处理机调度的层次
+一个批处理型作业，从进入系统并驻留在外存的后备队列列上开始，直至作业运行完毕，可能要经历下属三级调度：
+（1）,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="操作系统——第三章 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,第三章 处理机调度与死锁
+思维导图：
+
+一、处理机调度的基本概念
+1.处理机调度的层次
+一个批处理型作业，从进入系统并驻留在外存的后备队列列上开始，直至作业运行完毕，可能要经历下属三级调度：
+（1）,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="操作系统——第三章 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,第三章 处理机调度与死锁
+思维导图：
+
+一、处理机调度的基本概念
+1.处理机调度的层次
+一个批处理型作业，从进入系统并驻留在外存的后备队列列上开始，直至作业运行完毕，可能要经历下属三级调度：
+（1）,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">操作系统——第三章</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">操作系统——第三章</h1>
+        <div class="stuff">
+            <span>四月 01, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/OS/" rel="tag">OS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>第三章 处理机调度与死锁</p>
+<p>思维导图：</p>
+<p><img src="/2022/04/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/1.png"></p>
+<p>一、处理机调度的基本概念</p>
+<p>1.处理机调度的层次</p>
+<p>一个批处理型作业，从进入系统并驻留在外存的后备队列列上开始，直至作业运行完毕，可能要经历下属三级调度：</p>
+<p>（1）高级调度</p>
+<p>又称作业调度或长程调度。用于决定把外存上处于后备队列中的哪些作业调入内存，并为它们创建进程、分配必要的资源，然后将新创建的进程排在就绪队列上，准备执行。 有时也称接纳调度。</p>
+<p>（2）低级调度</p>
+<p>也称进程调度或短程调度</p>
+<p>用来决定就绪队列中的哪个进程应获得处理机，然后再由分派程序把处理机分配给该进程。为最基本的一种调度，三种OS中都有 。</p>
+<p>进程调度可采用下述两种调度方式：</p>
+<p>非抢占方式：一旦把处理机分配给某进程后，便让该进程一直执行，直至该进程完成或发生某事件而被阻塞时，才把处理机分配给其他进程，决不允许进程抢占已分配出去的处理机。 </p>
+<p>特点：实现简单、系统开销小；适用于大多数的批处理OS，但在要求比较严格的实时系统中，不宜采用这种调度方式 </p>
+<p>抢占方式：允许调度程序根据某种原则，去暂停某个正在执行的进程，将处理机重新分配给另一进程。 、</p>
+<p>抢占原则：</p>
+<p>优先权原则：优先权高的可以抢占优先级低的进程的处理机。</p>
+<p>短作业（进程）优先原则：短作业（进程）可以抢占长作业（进程）的处理机。</p>
+<p>时间片原则：各进程按时间片运行，一个时间片用完时，停止该进程执行重新进行调度。</p>
+<p>（3）中级调度</p>
+<p>又称中程调度，引入目的是为了提高内存利用率和系统吞吐量。为此，应使那些暂时不能运行的进程不再占用宝贵的内存资源，而将它们调之外存去等待，把此时的进程状态称为就绪驻外存状态或挂起状态。当这些进程重又具备运行条件、且内存又稍有空闲时，由中级调度来决定把外存上的哪些又具备运行条件的就绪进程，重新调入内存，并修改其状态为就绪状态，挂在就绪队列上等待进程调度。 中级调度实际上就是存储器管理中的对换功能</p>
+<p>调度队列模型：</p>
+<p>（1）仅有进程调度的调度队列模型</p>
+<p>在分时系统中，通常仅设置进程调度。系统可以把处于就绪状态的进程组织成栈、树或一个无序链表，形式取决于OS类型和所采用的调度算法。</p>
+<p>在分时系统中就绪进程组织成FIFO队列形式，按时间片轮转方式运行。</p>
+<p><img src="/2022/04/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/2.png"></p>
+<p>（2）具有高级和低级调度的调度队列模型</p>
+<p>在批处理系统中，不仅需要进程调度，而且还需要作业调度，由作业调度按一定的调度算法，从外存的后备队列中选择一批作业调入内存，并为它们建立进程，送入就绪队列，然后才由进程调度算法按照一定的进程调度算法，选择一个进程，把处理机分配给该进程。 </p>
+<p><img src="/2022/04/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/3.png"></p>
+<p>（3）同时具有三级调度的调度队列模型</p>
+<p>当在OS中引入中级调度后，可以把进程的就绪状态分为内存就绪和外存就绪。也可以把阻塞状态分为内存阻塞和外存阻塞两种状态。在调出操作的作用下，可使进程状态由内存就绪转变为外存就绪，由内存阻塞转变为外存阻塞；在中级调度的作用下，又可使外存就绪转变为内存就绪。 </p>
+<p><img src="/2022/04/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0/4.png"></p>
+<p>2.处理机调度的算法的目标</p>
+<p>（1）处理机调度算法的共同目标</p>
+<p>资源利用率   公平性   平衡性   策略强制执行</p>
+<p>（2）批处理系统的目标</p>
+<p>周转时间短（周转时间、平均周转时间、带权周转时间、平均带权周转时间）</p>
+<p>系统吞吐量   处理及利用率好</p>
+<p>（3）分时系统的目标</p>
+<p>响应时间快  均衡性</p>
+<p>（4）实时系统的目标</p>
+<p>截至时间的保证   可预测性</p>
+<p>二、作业与作业调度</p>
+<p>作业调度算法：</p>
+<p>先来先服务和短作业（进程）优先调度算法</p>
+<p>高优先权调度算法和高响应比优先调度算法</p>
+<p>1.先来先服务算法：</p>
+<p>是一种最简单的调度算法，既可用于作业调度，也可用于进程调度。 </p>
+<p>FCFS算法比较有利于长作业（进程），而不利于短作业（进程）。 </p>
+<p>FCFS调度算法有利于CPU繁忙型的作业，而不利于I&#x2F;O繁忙型的作业（进程） </p>
+<p>CPU繁忙型作业：如通常的科学计算。</p>
+<p>I&#x2F;O繁忙型作业 ：指CPU进行处理时，需频繁的请求I&#x2F;O。</p>
+<p>2.短作业优先算法</p>
+<p>指对短作业或短进程优先调度的算法。它们可以分别用于作业调度和进程调度。</p>
+<p>短作业优先（SJF）的调度算法，是从后备队列中选择一个或若干个估计运行时间最短的作业，将它们调入内存运行。</p>
+<p>短进程优先（SPF）调度算法，是从就绪队列中选出一估计运行时间最短的进程，将处理机分配给它，使它立即执行并一直执行到完成，或发生某事件而被阻塞放弃处理机时，再重新调度。</p>
+<p>优点：有效降低作业的平均等待时间，提高系统吞吐量</p>
+<p>缺点：对长作业不利。</p>
+<p>该算法完全未考虑作业的紧迫程度，因而不能保证紧迫性作业（进程）会被及时处理。</p>
+<p>由于作业（进程）的长短含主观因素，不一定能真正做到短作业优先。</p>
+<p>3.高优先权优先调度算法（FPF）</p>
+<p>分为两种：非抢占式优先算法和抢占式优先权调度算法</p>
+<p>（1）优先权的类型</p>
+<p>静态优先权：在创建进程时确定的，在进程的整个运行期间保持不变。一般利用某一范围的一个整数来表示，又称为优先数。</p>
+<p>动态优先权：在创建进程时所赋予的优先权可以随进程的推进或随其等待时间的增加而改变。</p>
+<p>确定优先权的依据：</p>
+<p>Ø进程类型：一般来说系统进程高于用户进程。</p>
+<p>Ø进程对资源的需求：如进程的估计时间及内存需要量的多少，对要求少的进程赋予较高优先权。</p>
+<p>Ø用户要求：由用户进程的紧迫程度及用户所付费用的多少来确定优先权的。</p>
+<p>优先权&#x3D;(等待时间+要求服务时间)&#x2F;要求服务时间</p>
+<p>由于等待时间与服务时间之和就是系统的响应时间，故上式又表示为：Rp&#x3D;响应时间&#x2F;要求服务时间</p>
+<p>Ø如作业等待时间相同，则要求服务的时间愈短优先权愈高，所以该算法利于短作业。</p>
+<p>Ø当要求服务的时间相同，作业优先权的高低决定于其等待时间的长短，所以是先来先服务。</p>
+<p>Ø对于长作业，作业的优先级可以随等待时间的增加而提高，当其等待时间足够长也可获得处理机。</p>
+<p>三、进程调度</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

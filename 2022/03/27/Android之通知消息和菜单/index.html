@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android之通知消息和菜单 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、对话框的使用
+Android中系统经常会向用户反馈一些提示信息，根据其表现形式可以分为以下几类：
+1.对话框（模式对话框）：以弹出层形式强制用户做出响应
+在Android中使用AlertDial,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Android之通知消息和菜单 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、对话框的使用
+Android中系统经常会向用户反馈一些提示信息，根据其表现形式可以分为以下几类：
+1.对话框（模式对话框）：以弹出层形式强制用户做出响应
+在Android中使用AlertDial,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Android之通知消息和菜单 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、对话框的使用
+Android中系统经常会向用户反馈一些提示信息，根据其表现形式可以分为以下几类：
+1.对话框（模式对话框）：以弹出层形式强制用户做出响应
+在Android中使用AlertDial,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Android之通知消息和菜单</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Android之通知消息和菜单</h1>
+        <div class="stuff">
+            <span>三月 27, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、对话框的使用</p>
+<p>Android中系统经常会向用户反馈一些提示信息，根据其表现形式可以分为以下几类：</p>
+<p>1.对话框（模式对话框）：以弹出层形式强制用户做出响应</p>
+<p>在Android中使用AlertDialog类来实现基本对话框的创建</p>
+<p>AlertDialog是最常用的对话框类；</p>
+<p>DataPickerDialog、ProgressDialog、TimePickerDialog是子类，方便创建一些特殊的对话框。</p>
+<p>使用AlertDialog对话框</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/1.png"></p>
+<p>实现一个简单的对话框：</p>
+<p>（1）创建简单的带有两个按钮的对话框；</p>
+<p>（2）在onCreate()回调方法中创建对话框；</p>
+<p>（3）提示：推出当前应用使用当前Activity的finish()方法。</p>
+<p>使用AlertDialog对话框：</p>
+<p>实现一个自定义内容的对话框</p>
+<p>（1）创建自定义内容的对话框</p>
+<p>（2）使用onCreateDialog()回调方法</p>
+<p>（3）提示：加载用户自定义布局的XML文件，使用：getLayoutInflater().inflate()</p>
+<p>PopupWindow</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/2.png"></p>
+<p>对话框小结：</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/3.png"></p>
+<p>二、Toast的使用</p>
+<p>1.Toast：没有焦点（即不干扰用户其他操作），显示提示信息，显示时间较短，会自动消失。</p>
+<p>一般使用在用户信息合法性校验、关闭应用时的提示等场合。</p>
+<p>同对话框一样，Toast一般在事件监听器中使用（即当特定事件触发时，显示Toast消息）</p>
+<p>2.Toast使用的基本流程：</p>
+<p>（1）创建Toast；</p>
+<p>（2）设置Toast基本属性；</p>
+<p>可以设置Toast消息内容来自XML布局文件，使用流程基本同对话框，方法未Toast.setVIew()。</p>
+<p>（3）显示Toast。</p>
+<p>3.Toast小结：</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/4.png"></p>
+<p>三、Notification的使用</p>
+<p>1.Notification：在状态栏显示通知信息，除非用户查看信息或删除信息，否则一直在状态栏显示。</p>
+<p>Notification一般使用在收到短信后、收到应用的推送消息后、收到未接电话等场合。</p>
+<p>Notification使用时，需要借助NotificationManger（通知管理器）来实现。</p>
+<p>使用Notification</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/5.png"></p>
+<p>2.Notification使用的基本流程：</p>
+<p>（1）获取通知管理器服务（NotificationManager）</p>
+<p>（2）创建通知渠道（NotificationChannel）</p>
+<p>（3）创建通知构造器（Notification.Builer）</p>
+<p>（4）通过通知构造器创建通知（Notification）</p>
+<p>（5）调用通知管理器服务发送通知</p>
+<p>四、菜单简介</p>
+<p>1.菜单：显示一个应用程序的主界面中不是直接可见的额外选项的视图组件</p>
+<p>菜单的应用十分广泛，应用的设置窗口、选项窗口、快捷操作等等都有菜单的身影</p>
+<p>在Android中支持3种菜单类型：</p>
+<p>（1）选项菜单</p>
+<p>当用户按下“Menu”键时，弹出的菜单</p>
+<p>（2）上下文菜单</p>
+<p>当用户长按某个视图元素时，弹出的菜单（相当于电脑种的右键菜单）</p>
+<p>（3）弹出式菜单（子菜单）</p>
+<p>当用户点击“选项菜单”中的某一项时，弹出的附加菜单</p>
+<p>2.使用选项菜单和子菜单</p>
+<p>选项菜单&#x2F;子菜单使用的基本流程</p>
+<p>（1）创建菜单项XML布局文件（或由Java代码生成）</p>
+<p>（2）在Activity中创建菜单（onCreateOptionsMenu方法）</p>
+<p>（3）绑定菜单项选择事件（onOptionsltemSelected方法）</p>
+<p>3.使用上下文菜单</p>
+<p>上下文菜单使用的基本流程</p>
+<p>（1）创建菜单项XML布局文件（或由Java代码生成）</p>
+<p>（2）在Activity中创建上下文菜单</p>
+<p>（3）为视图元素绑定上下文菜单</p>
+<p>（4）绑定菜单项选择事件</p>
+<p>4.PopupMenu</p>
+<p>PopupMenu可以非常方便的在指定view的下面显示一个弹出菜单，类似于ActionBar溢出菜单的效果</p>
+<p>5.菜单小结</p>
+<p><img src="/2022/03/27/Android%E4%B9%8B%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF%E5%92%8C%E8%8F%9C%E5%8D%95/6.png"></p>
+<p>五、Action bar</p>
+<p>活动条，位于传统标题栏的位置，即屏幕的顶部</p>
+<p>1.ActionBar的主要功能：</p>
+<p>（1）显示选项菜单的菜单项</p>
+<p>（2）实用程序图标作为返回Home或者向上的导航操作</p>
+<p>（3）提供交互式的View作为Action  View</p>
+<p>（4）提供基于Tab的导航方式，可用于切换多个Fragment</p>
+<p>（5）提供基于下拉的导航方式</p>
+<p>2.ActionBar的显示和隐藏可以通过程序来控制</p>
+<p>（1）show():显示ActionBar</p>
+<p>（2）hide():隐藏ActionBar</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HarmonyOS - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,一、应用基础知识
+1.用户应用程序
+泛指运行在设备的操作系统之上，为用户提供特定服务的程序，简称“应用”。
+在HarmongOS上运行的应用，有两种形态：
+传统方式的需要安装的应用
+提供特定的功能，,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="HarmonyOS - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,一、应用基础知识
+1.用户应用程序
+泛指运行在设备的操作系统之上，为用户提供特定服务的程序，简称“应用”。
+在HarmongOS上运行的应用，有两种形态：
+传统方式的需要安装的应用
+提供特定的功能，,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="HarmonyOS - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,一、应用基础知识
+1.用户应用程序
+泛指运行在设备的操作系统之上，为用户提供特定服务的程序，简称“应用”。
+在HarmongOS上运行的应用，有两种形态：
+传统方式的需要安装的应用
+提供特定的功能，,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">HarmonyOS</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">HarmonyOS</h1>
+        <div class="stuff">
+            <span>四月 09, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HarmonyOS/" rel="tag">HarmonyOS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一、应用基础知识</p>
+<p>1.用户应用程序</p>
+<p>泛指运行在设备的操作系统之上，为用户提供特定服务的程序，简称“应用”。</p>
+<p>在HarmongOS上运行的应用，有两种形态：</p>
+<p>传统方式的需要安装的应用</p>
+<p>提供特定的功能，免安装的应用（即原子化服务）</p>
+<p>2.用户应用程序包结构</p>
+<p>以APP Pack形式发布，由一个或多个HAP以及描述每个HAP（HarmonyOS Ability Package） 属性的pack.info组成。HAP是Ability的部署包。</p>
+<p>一个HAP是由代码、资源、第三方库及应用配置文件组成的模块包，可分为entry和feature两种模块类型，如<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/basic-fundamentals-0000000000041611#ZH-CN_TOPIC_0000001063248002__fig2196184212719">图1</a>所示。</p>
+<ul>
+<li><strong>entry</strong>：应用的主模块。一个APP中，对于同一设备类型，可以有一个或多个entry类型的HAP，来支持该设备类型中不同规格（如API版本、屏幕规格等）的具体设备。如果同一设备类型存在多个entry模块，则必须配置distroFilter分发规则，使得应用市场在做应用的云端分发时，对该设备类型下不同规格的设备进行精确分发。</li>
+<li><strong>feature</strong>：应用的动态特性模块。一个APP可以包含一个或多个feature类型的HAP，也可以不含。只有包含Ability的HAP才能够独立运行。</li>
+</ul>
+<p>APP逻辑视图</p>
+<p><img src="/2022/04/09/HarmonyOS/1.png"></p>
+<p>3.Ability</p>
+<p>是应用所具有的能力的抽象，一个应用可以包含一个或多个Ability。</p>
+<p>Ability分为两种类型：FA（Feature Ability）和PA（Particle Ability）</p>
+<p>FA&#x2F;PA是应用的基本组成单元，能够实现特定的业务功能。</p>
+<p>FA有UI界面，而PA无UI界面</p>
+<p>4.库文件</p>
+<p>是应用依赖的第三方代码（例如so、jar、bin、har等二进制文件），存放在libs目录。</p>
+<p>5.配置文件</p>
+<p>配置文件（config.json）是应用的Ability信息，用于声明应用的Ability，以及应用所需权限等信息。</p>
+<p>6.pack.info</p>
+<p>描述应用软件包中每个HAP的属性，由IDE编译生成，应用市场根据文件进行拆包和HAP的分类存储。</p>
+<p>具体属性包括：</p>
+<ul>
+<li>delivery-with-install: 表示该HAP是否支持随应用安装。“true”表示支持随应用安装；“false”表示不支持随应用安装。</li>
+<li>name：HAP文件名。</li>
+<li>module-type：模块类型，entry或feature。</li>
+<li>device-type：表示支持该HAP运行的设备类型。</li>
+</ul>
+<p>7.HAR（HarmonyOS Ability Resources）</p>
+<p>可以提供构建应用所需的所有内容，包括源代码、资源文件和config.json文件。不同于HAP，HAR不能独立安装运行在设备上，只能作为应用模块的依赖项被引用。</p>
+<p>二、简介</p>
+<p>应用的每个HAP的根目录下都存在一个”config.json“配置文件，文件内容主要涵盖一下三个方面：</p>
+<ul>
+<li>应用的全局配置信息，包含应用的包名、生产厂商、版本号等基本信息。</li>
+<li>应用在具体设备上的配置信息，包含应用的备份恢复、网络安全等能力。</li>
+<li>HAP包的配置信息，包含每个Ability必须定义的基本属性（如包名、类名、类型以及Ability提供的能力），以及应用访问系统或其他应用受保护部分所需的权限等。</li>
+</ul>
+<p>1.配置文件的组成</p>
+<p>配置文件”config.json“采用JSON文件格式，其中包含了一系列配置项，每个配置项由属性和值两部分构成：</p>
+<ul>
+<li><p>属性</p>
+<p>属性出现顺序不分先后，且每个属性最多只允许出现一次。</p>
+</li>
+<li><p>值</p>
+<p>每个属性的值为JSON的基本数据类型（数值、字符串、布尔值、数组、对象或者null类型）。</p>
+</li>
+</ul>
+<p>三、配置文件的元素</p>
+<p>DevEco Studio提供了两种编辑”’config.json’文件的方式。在“config.json”的编辑窗口中，可在右上角切换代码编辑视图或可视化编辑视图。</p>
+<p>config.json文件的可视化编辑视图</p>
+<p><img src="/2022/04/09/HarmonyOS/2.png"></p>
+<p>1.配置文件的内部结构</p>
+<p>“config.json”由app、deviceConfig和module三个组成，缺一不可。</p>
+<p>配置文件的内部结构：</p>
+<p><img src="/2022/04/09/HarmonyOS/3.png"></p>
+<p>2.app对象的内部结构</p>
+<p>包含应用的全局配置信息</p>
+<p>app对象的内部结构说明</p>
+<p><img src="/2022/04/09/HarmonyOS/4.png"></p>
+<p>app示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;app&quot;: &#123;</span><br><span class="line">    &quot;bundleName&quot;: &quot;com.huawei.hiworld.example&quot;, </span><br><span class="line">    &quot;vendor&quot;: &quot;huawei&quot;, </span><br><span class="line">    &quot;version&quot;: &#123;</span><br><span class="line">        &quot;code&quot;: 2, </span><br><span class="line">        &quot;name&quot;: &quot;2.0.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.deviceConfig对象的内部结构</p>
+<p>包含在具体设备上的应用配置信息，可以包含default、phone、table、tv、car、wearable、liteWearable和smartVision等属性。default标签内的配置是适用于所有设备通用，其他设备类型如果有特殊的需求，则需要在该设备类型的标签下进行配置。 </p>
+<p>deviceConfig对象的内部结构说明 </p>
+<p><img src="/2022/04/09/HarmonyOS/5.png"></p>
+<p>default、phone、tablet、tv、car、wearable、liteWearable和smartVision等对象的内部结构说明如下：</p>
+<p>不同设备的内部设备说明</p>
+<p><img src="/2022/04/09/HarmonyOS/6.png"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

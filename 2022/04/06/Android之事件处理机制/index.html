@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android之事件处理机制 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,Android中的事件处理
+一、Android用户界面的主要作用是：显示视图界面和捕获用户动作。当用户在界面上执行某一个动作时，会触发某一个事件，而Android程序应该对用户动作做出响应，即事件处,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Android之事件处理机制 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,Android中的事件处理
+一、Android用户界面的主要作用是：显示视图界面和捕获用户动作。当用户在界面上执行某一个动作时，会触发某一个事件，而Android程序应该对用户动作做出响应，即事件处,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Android之事件处理机制 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,Android中的事件处理
+一、Android用户界面的主要作用是：显示视图界面和捕获用户动作。当用户在界面上执行某一个动作时，会触发某一个事件，而Android程序应该对用户动作做出响应，即事件处,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Android之事件处理机制</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Android之事件处理机制</h1>
+        <div class="stuff">
+            <span>四月 06, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>Android中的事件处理</p>
+<p>一、Android用户界面的主要作用是：显示视图界面和捕获用户动作。当用户在界面上执行某一个动作时，会触发某一个事件，而Android程序应该对用户动作做出响应，即事件处理。</p>
+<p>要考虑三个问题：</p>
+<p>1.接收事件的是谁</p>
+<p>Android中视图界面中可以触发事件的视图元素：</p>
+<p>视图组件（TextView、Button、ListView项目、ImageView……）</p>
+<p>布局容器（LinearLayout、RelativeLayout……）</p>
+<p>2.事件都有什么类型</p>
+<p>Android中可以接受的事件类型：</p>
+<p>点击&#x2F;触摸事件onClick、onLongClick、onTouch、onTouchEvent、onTrackballEvent等</p>
+<p>键盘类事件：onKey、onKeyDown、onKeyUp等</p>
+<p>状态改变类事件：onFocusChange、onCheckedChange、onItemSelected</p>
+<p>3.谁对事件做出响应</p>
+<p>Android中提供了两种方法的事件处理机制：</p>
+<p>（1）基于监听器的事件处理机制：</p>
+<p>把事件源（触发事件的对象）和事件的处理器（监听器）分离；</p>
+<p>实现机制：为View绑定特定的事件监听器</p>
+<p>（2）基于回调的事件处理机制：</p>
+<p>事件源的事件由自己处理，即事件源和事件处理整合在一起（同一个类中）；</p>
+<p>实现机制：重写事件源的特定回调方法</p>
+<p>二、事件传递机制</p>
+<p>事件首先到达Activity的顶层视图</p>
+<p>在事件传递模型中三个基本概念及对应方法</p>
+<p>1.事件分发</p>
+<p>2.事件拦截</p>
+<p>3.事件响应</p>
+<p>ViewGroup会进行事件分发、拦截、响应操作</p>
+<p>View只会进行事件分发、响应操作（分发方法直接跳转到响应方法）</p>
+<p>事件分发：</p>
+<p>事件分发是树的深度优先遍历</p>
+<p><img src="/2022/04/06/Android%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/1.png"></p>
+<p>事件回溯：</p>
+<p><img src="/2022/04/06/Android%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/2.png"></p>
+<p><img src="/2022/04/06/Android%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/3.png"></p>
+<p>当View不处理事件时，回调方法会返回false（交给父控件处理），处理事件以后返回true（表示当前view消费了此事件）</p>
+<p>三、基于监听器的事件处理</p>
+<p>基于监听器的事件处理把事件的事件源和处理器进行分离，便于处理器处理多个视图触发的事件</p>
+<p>在事件监听的处理模型中，涉及到3个核心对象：</p>
+<p>1.事件源：事件发生的场所（即View或ViewGroup）</p>
+<p>2.事件：封装了界面上发生的特定事情（通常是一次用户操作）；若需要获得事件详细信息，可以访问Event对象。</p>
+<p>3.事件监听器：负责监听事件源所发生的事件，并作出响应。</p>
+<p><img src="/2022/04/06/Android%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/4.png"></p>
+<p>基于监听器事件处理的实现方法：</p>
+<p>1.匿名内部类对象作为事件监听器</p>
+<p>2.内部类对象作为事件监听器：最常用的方式；</p>
+<p>适用于一个监听器响应多个元素事件的情况</p>
+<p>3.直接在XML布局文件中绑定监听器：最简单的方式</p>
+<p>但不利于代码维护</p>
+<p>4.Activity本身作为事件监听器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>四、基于回调的事件处理</p>
+<p>基于回调的事件处理机制，事件源与事件监听器是统一的（或者说，事件监听器存在于事件源VIew对象中），一般适用于某个视图组件绑定特定行为中。</p>
+<p>五、基于回调的事件传播</p>
+<p>几乎所有的事件处理方法都有一个Boolean类型的返回值，用于标示是否完全处理该事件：</p>
+<p>如果返回true，表明已经完全处理该事件，不会再传播</p>
+<p>如果返回false，表明未完全处理该事件，会再传播</p>
+<p>六、事件处理机制汇总</p>
+<p>对比两种事件处理模型，两种各有优势：</p>
+<p>1.基于监听的事件模型分工明确，事件源于处理器分开具有更好的维护性</p>
+<p>2.事件处理机制确保事件监听器会被优先触发</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

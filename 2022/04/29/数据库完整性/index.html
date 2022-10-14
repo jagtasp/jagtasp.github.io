@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数据库完整性 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="追着光 成为光,五、完整性约束命名子句
+1.约束性命名子句
+constraint约束，用来对完整性约束条件命名
+constraint &amp;lt;完整性约束条件名&amp;gt;
+[primary key短语 | foreig,"> 
+    <meta name="author" content="jagtasp"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="数据库完整性 - Hexo"/>
+    <meta name="twitter:description" content="追着光 成为光,五、完整性约束命名子句
+1.约束性命名子句
+constraint约束，用来对完整性约束条件命名
+constraint &amp;lt;完整性约束条件名&amp;gt;
+[primary key短语 | foreig,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="数据库完整性 - Hexo"/>
+    <meta property="og:description" content="追着光 成为光,五、完整性约束命名子句
+1.约束性命名子句
+constraint约束，用来对完整性约束条件命名
+constraint &amp;lt;完整性约束条件名&amp;gt;
+[primary key短语 | foreig,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">数据库完整性</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">数据库完整性</h1>
+        <div class="stuff">
+            <span>四月 29, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/database/" rel="tag">database</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>五、完整性约束命名子句</p>
+<p>1.约束性命名子句</p>
+<p>constraint约束，用来对完整性约束条件命名</p>
+<p>constraint &lt;完整性约束条件名&gt;</p>
+<p>[primary key短语 | foreign key 短语 | check短语]</p>
+<p>例：建立学生登记表Student，要求学号在90000~99999之键间，姓名不能取空值，年龄小于30，性别只能是“男”或“女”</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student</span><br><span class="line">(sno <span class="type">numeric</span>(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">constraint</span> c1 <span class="keyword">check</span>(sno <span class="keyword">between</span> <span class="number">90000</span> <span class="keyword">and</span> <span class="number">99999</span>),</span><br><span class="line">sname <span class="type">char</span>(<span class="number">20</span>)</span><br><span class="line">contraint c2 <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">sage <span class="type">numeric</span>(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">constraint</span> c3 <span class="keyword">check</span>(sage<span class="operator">&lt;</span><span class="number">30</span>),</span><br><span class="line">ssex <span class="type">char</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">constraint</span> c4 <span class="keyword">check</span>(ssex <span class="keyword">in</span> (<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;女&#x27;</span>)),</span><br><span class="line"><span class="keyword">constraint</span> studentKey <span class="keyword">primary</span> key(sno)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>在student表上建立了5个约束条件，包括主码约束以及C1，C2，C3，C4四个列级约束。</p>
+<p>例：建立教师表teacher，要求每个教师的应发工资不低于3000元（应发工资等于实发工资sal和扣除项deduct之和）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher</span><br><span class="line">(eno <span class="type">numeric</span>(<span class="number">4</span>) <span class="keyword">primary</span> key,</span><br><span class="line">ename <span class="type">char</span>(<span class="number">10</span>),</span><br><span class="line">job <span class="type">char</span>(<span class="number">8</span>),</span><br><span class="line">sal <span class="type">numeric</span>(<span class="number">7</span>,<span class="number">2</span>),</span><br><span class="line">deduct <span class="type">numeric</span>(<span class="number">7</span>,<span class="number">2</span>),</span><br><span class="line">deptno <span class="type">numeric</span>(<span class="number">7</span>,<span class="number">2</span>),</span><br><span class="line"><span class="keyword">constraint</span> empfkey foregin key(deptno) <span class="keyword">references</span> dept(deptno),</span><br><span class="line"><span class="keyword">constraint</span> c1 <span class="keyword">check</span>(sal <span class="operator">+</span> deduct <span class="operator">&gt;=</span><span class="number">3000</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>2.修改表中的完整性限制</p>
+<p>使用alter table语句修改表中的完整性限制</p>
+<p>例：修改表中student中的约束条件，要求学号改为900000~999999之间，年龄由小与30改为小与40</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--先删除原来的约束条件，再增加新的约束条件</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">constraint</span> c1;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student</span><br><span class="line"><span class="keyword">add</span> <span class="keyword">constraint</span> c1 <span class="keyword">check</span> (sno <span class="keyword">between</span> <span class="number">900000</span> <span class="keyword">and</span> <span class="number">999999</span>),</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student</span><br><span class="line"><span class="keyword">drop</span> conatraint c3;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student</span><br><span class="line"><span class="keyword">add</span> conatraint c3 <span class="keyword">check</span> (sage<span class="operator">&lt;</span><span class="number">40</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="tryes"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+				
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
